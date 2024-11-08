@@ -17,7 +17,7 @@ func daysSinceMayanEpoch(date time.Time) int {
 	return int(date.Sub(mayanEpoch).Hours() / 24)
 }
 
-// Calculate Tzolk'in date
+// Calculate Tzolk'in date Consisting of 20 day names and 13 numbers.
 func tzolkinDate(days int) (int, string) {
 	number := (days % 13) + 1
 	dayName := tzolkinNames[days%20]
@@ -25,6 +25,7 @@ func tzolkinDate(days int) (int, string) {
 }
 
 // Calculate Haab' date
+// Comprising 18 months of 20 days each and a short month (Wayeb) of 5 extra days.
 func haabDate(days int) (int, string) {
 	dayOfYear := days % 365
 	month := dayOfYear / 20
